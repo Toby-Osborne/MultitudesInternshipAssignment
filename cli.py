@@ -8,10 +8,10 @@ print ("=======================================")
 #checking rate limit, before searching
 g = Github()
 
-print ("You have "+str(g.rate_limiting[0])+" queries out of "+str(g.rate_limiting[1])+" per hour")
+print (f"You have {g.rate_limiting[0]} queries out of {g.rate_limiting[1]} per hour")
 remSec = int(g.rate_limiting_resettime-time.time())
 
-print (str(remSec/60).split(".")[0] + " minutes " + str(remSec%60) + " seconds remaining till rate limit reset")
+print (f"{str(remSec/60).split('.')[0]} minutes {remSec%60} seconds remaining till rate limit reset")
 print ("=======================================")
 
 print ("Who's the repo-wner'?")
@@ -32,4 +32,3 @@ print("Found a total of "+ str(pulls.totalCount) +" open pull requests at "+ use
 print("See you next time :)")
 print ("=======================================")
 
-#print(g)
