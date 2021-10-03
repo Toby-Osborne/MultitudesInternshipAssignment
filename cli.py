@@ -1,7 +1,6 @@
 from pprint import pprint
 from github import Github
 
-
 username = 'microsoft'
 repository = "TypeScript"
 
