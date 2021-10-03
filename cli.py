@@ -6,6 +6,7 @@ repository = "TypeScript"
 
 g = Github()
 
+#very nice
 user = g.get_user(username)
 repo = user.get_repo(repository)
 pulls = repo.get_pulls(state='all')
