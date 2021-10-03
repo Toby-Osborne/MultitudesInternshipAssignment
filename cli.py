@@ -29,8 +29,10 @@ while(1):
     except:
         if g.rate_limiting[0] > 0:
             print("This is not a valid username") #other exception could be a 404 exception
+            print (f"You have {g.rate_limiting[0]} queries out of {g.rate_limiting[1]} per hour") #prints remaining queries 
         else:
-            print("You have 0 remaining queries for this hour") #if remaining time is zero then this exception is thrown
+            print("You have 0 remaining queries for this hour, exiting ...") #if remaining time is zero then this exception is thrown
+            exit()
 
 while(1):
     print ("Whats the repo's name?")
@@ -41,15 +43,17 @@ while(1):
         break
     except:
         if g.rate_limiting[0] > 0:
-            print("This is not a valid repository")
+            print(f"This is not a valid repository for user {username}")
+            print (f"You have {g.rate_limiting[0]} queries out of {g.rate_limiting[1]} per hour") #prints remaining queries 
         else:
-            print("You have 0 remaining queries for this hour")
+            print("You have 0 remaining queries for this hour, exiting ...")
+            exit()
 
-    
+
 print("Digging for Data...")
 print ("=======================================")
 
-pulls = repo.get_pulls(state='open') #gets a list of pulls in the open state using the state argument
+pulls = repo.get_pulls(state='open') #gets a list of pulls in the omicrosoftpen state using the state argument
 
 print(f"Found a total of {pulls.totalCount} open pull requests at {username}/{repository}.")
 print("See you next time :)")
