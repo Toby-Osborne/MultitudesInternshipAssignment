@@ -1,19 +1,21 @@
 from github import Github
 import time
-import math
 
 from github.GithubObject import GithubObject
 
+#introduction
 print ("=======================================")
 print ("Welcome to the Multitudes CLI!  Time to dig some data... ")
 print ("=======================================")
-#checking rate limit, before searching
+
+#initially define variable
 g = Github()
 
-print (f"You have {g.rate_limiting[0]} queries out of {g.rate_limiting[1]} per hour")
-remSec = int(g.rate_limiting_resettime-time.time())
+#checking rate limit, before searching
+print (f"You have {g.rate_limiting[0]} queries out of {g.rate_limiting[1]} per hour") #prints remaining queries 
+remSec = int(g.rate_limiting_resettime-time.time()) #prints time to reset adjusted from Epoch to relative time in min/sec
 
-print (f"{str(remSec/60).split('.')[0]} minutes {remSec%60} seconds remaining till rate limit reset")
+print (f"{str(remSec/60).split('.')[0]} minutes {remSec%60} seconds remaining till rate limit reset") #
 print ("=======================================")
 
 
@@ -24,13 +26,13 @@ while(1):
     print ("=======================================")
     
     try:
-        user = g.get_user(username)
+        user = g.get_user(username) #attempts to get username
         break
     except:
         if g.rate_limiting[0] > 0:
-            print("This is not a valid username")
+            print("This is not a valid username") #other exception could be a 404 exception
         else:
-            print("You have 0 remaining queries for this hour")
+            print("You have 0 remaining queries for this hour") #if remaining time is zero then this exception is thrown
 
 while(1):
     print ("Whats the repo's name?")
@@ -49,9 +51,9 @@ while(1):
 print("Digging for Data...")
 print ("=======================================")
 
-pulls = repo.get_pulls(state='open')
+pulls = repo.get_pulls(state='open') #gets a list of pulls in the open state using the state argument
 
-print("Found a total of "+ str(pulls.totalCount) +" open pull requests at "+ username+"/"+repository+".")
+print(f"Found a total of {pulls.totalCount} open pull requests at {username}/{repository}.")
 print("See you next time :)")
 print ("=======================================")
 
