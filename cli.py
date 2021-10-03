@@ -1,8 +1,6 @@
 from github import Github
 import time
 
-from github.GithubObject import GithubObject
-
 #introduction
 print ("=======================================")
 print ("Welcome to the Multitudes CLI!  Time to dig some data... ")
