@@ -4,6 +4,7 @@ import time
 #introduction
 print ("========================================")
 print ("Welcome to the Multitudes CLI!  Time to dig some data... ")
+#very messy implementation of ascii art, have test tomorrow so have not fixed it
 print ("                       .-'~~~-.\n                     .'o  oOOOo`.\n                    :~~~-.oOo   o`.\n                     `. \ ~-.  oOOo.\n                       `.; / ~.  OO:\n                       .'  ;-- `.o.'\n                      ,'  ; ~~--'~\n                      ;  ;\n_______\|/__________\\;_\\//___\|/________")
 print ("========================================")
 
