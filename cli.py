@@ -2,9 +2,10 @@ from github import Github
 import time
 
 #introduction
-print ("=======================================")
+print ("========================================")
 print ("Welcome to the Multitudes CLI!  Time to dig some data... ")
-print ("=======================================")
+print ("                       .-'~~~-.\n                     .'o  oOOOo`.\n                    :~~~-.oOo   o`.\n                     `. \ ~-.  oOOo.\n                       `.; / ~.  OO:\n                       .'  ;-- `.o.'\n                      ,'  ; ~~--'~\n                      ;  ;\n_______\|/__________\\;_\\//___\|/________")
+print ("========================================")
 
 #initially define variable
 g = Github()
@@ -14,14 +15,14 @@ print (f"You have {g.rate_limiting[0]} queries out of {g.rate_limiting[1]} per h
 remSec = int(g.rate_limiting_resettime-time.time()) #prints time to reset adjusted from Epoch to relative time in min/sec
 
 print (f"{str(remSec/60).split('.')[0]} minutes {remSec%60} seconds remaining till rate limit reset") #
-print ("=======================================")
+print ("========================================")
 
 
 #exception handling with warnings
 while(1):
     print ("Who's the repo-wner'?")
     username = input()
-    print ("=======================================")
+    print ("========================================")
     
     try:
         user = g.get_user(username) #attempts to get username
@@ -37,7 +38,7 @@ while(1):
 while(1):
     print ("Whats the repo's name?")
     repository = input()
-    print ("=======================================")
+    print ("========================================")
     try:
         repo = user.get_repo(repository)
         break
@@ -51,11 +52,12 @@ while(1):
 
 
 print("Digging for Data...")
-print ("=======================================")
+print ("========================================")
 
 pulls = repo.get_pulls(state='open') #gets a list of pulls in the omicrosoftpen state using the state argument
 
 print(f"Found a total of {pulls.totalCount} open pull requests at {username}/{repository}.")
 print("See you next time :)")
-print ("=======================================")
+print ("========================================")
+
 
