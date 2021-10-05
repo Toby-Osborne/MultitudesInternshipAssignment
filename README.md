@@ -1,4 +1,4 @@
-To run this CLI tool, you must have python 3 installed and added to you path environment.
+To run this CLI tool, you must have python 3 installed and added to your path environment.
 If you are not sure, type "python" into your command line (terminal on mac/linux).  It should say "Python 3.x.x" followed by some version info.
 If this is not the case, you will need to install python and add it to your path environment (windows) or shell path (mac os)
        
